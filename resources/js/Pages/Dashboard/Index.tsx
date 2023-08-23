@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 const Index = () => {
     return (
         <ChakraProvider>
-            <h1>Dashboahhhhh</h1>
+            <h1>Dashboahhhhh1111</h1>
         </ChakraProvider>
     );
 };
