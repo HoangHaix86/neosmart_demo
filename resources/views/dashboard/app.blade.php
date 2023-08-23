@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <title>App</title>
+    <title>Dashboard</title>
     @vite('resources/js/app.tsx')
     @inertiaHead
 </head>
-<body>
+<body style="background-color: #eee">
 @inertia
 </body>
 </html>

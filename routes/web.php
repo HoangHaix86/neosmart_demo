@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('client.index');
+Route::get('/san-pham', [HomeController::class, 'product'])->name('client.product');
+// Route::get('/san-pham/{slug}', [HomeController::class, 'productShow']);
+Route::get('/tin-tuc', [HomeController::class, 'news'])->name('client.news');
+Route::get('/lien-he', [HomeController::class, 'contact'])->name('client.contact');
+Route::get('/giai-phap', [HomeController::class, 'solution'])->name('client.solution');
+
 
 use Inertia\Inertia;
 
-Route::get('/dashboard', function () {
-    return Inertia::render('App');
+Route::get('/auth/login', function () {
+    return Inertia::render('Auth/Login');
+})->name('login');
+
+Route::post('/auth/login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    });
 });
+

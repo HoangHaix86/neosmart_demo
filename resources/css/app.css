@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+@layer components {
+    .navlink {
+        @apply block p-1 cursor-pointer text-lg;
+    }
+    .navlink-item {
+        @apply block p-1 cursor-pointer text-lg;
+    }
+    .open svg {
+        @apply rotate-90;
+    }
+
+}
