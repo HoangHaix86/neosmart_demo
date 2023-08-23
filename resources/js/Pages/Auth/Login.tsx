@@ -8,18 +8,22 @@ import {
     Text,
     useColorModeValue,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import { usePage } from "@inertiajs/inertia-react";
-import { FormProvider, useForm } from 'react-hook-form';
+import React, {useState} from 'react'
+import {usePage} from "@inertiajs/inertia-react";
+import {FormProvider, useForm} from 'react-hook-form';
 import Input from '../../Components/Form/Input';
 
+interface IFormValues {
+    username: string;
+    password: string;
+}
+
 export default function Login() {
-    const { errors } = usePage().props
-    const methods = useForm<any>();
-    const onSubmit = (value: any) => {
+    const {errors} = usePage().props
+    const methods = useForm<IFormValues>();
+    const onSubmit = (value: IFormValues) => {
         console.log(value)
     }
-
     return (
         <Flex
             minH={'100vh'}
@@ -30,7 +34,7 @@ export default function Login() {
                 <Stack align={'center'}>
                     <Heading fontSize={'4xl'}>Sign in to your account</Heading>
                     <Text fontSize={'lg'} color={'gray.600'}>
-                        to enjoy all of our cool <Text color={'blue.400'}>features</Text> ✌️
+                        to enjoy all of our cool features
                     </Text>
                 </Stack>
                 <Box
@@ -41,11 +45,11 @@ export default function Login() {
                     <FormProvider {...methods}>
                         <form onSubmit={methods.handleSubmit(onSubmit)}>
                             <Stack spacing={4}>
-                                <Input name='username' type='text' label='Username' />
-                                <Input name='password' type='password' label='Password' />
+                                <Input name='username' type='text' label='Username'/>
+                                <Input name='password' type='password' label='Password'/>
                                 <Stack spacing={10}>
                                     <Stack
-                                        direction={{ base: 'column', sm: 'row' }}
+                                        direction={{base: 'column', sm: 'row'}}
                                         align={'start'}
                                         justify={'space-between'}>
                                         <Checkbox>Remember me</Checkbox>
@@ -56,7 +60,7 @@ export default function Login() {
                                         color={'white'}
                                         _hover={{
                                             bg: 'blue.500',
-                                        }}>
+                                        }} type={'submit'}>
                                         Sign in
                                     </Button>
                                 </Stack>
