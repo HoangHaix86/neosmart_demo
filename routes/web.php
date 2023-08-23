@@ -32,7 +32,7 @@ Route::get('/auth/login', function () {
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard/Index');
 });
 
 //Route::group(['middleware' => 'auth:sanctum'], function () {
