@@ -20,13 +20,16 @@
         "@chakra-ui/react": "^2.8.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
+        "@hookform/resolvers": "^3.3.0",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/progress": "^0.2.7",
+        "@inertiajs/react": "^1.0.11",
         "framer-motion": "^10.16.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.45.4",
-        "react-icons": "^4.10.1"
+        "react-icons": "^4.10.1",
+        "yup": "^1.2.0"
     }
 }

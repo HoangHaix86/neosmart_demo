@@ -41,24 +41,27 @@ class AuthController extends Controller
 
     public function login(ShowUserRequest $request)
     {
-        // Check if the username is email
+//         Check if the username is email
         if (filter_var($request->username, FILTER_VALIDATE_EMAIL)) {
             $user = User::query()->where('email', $request->username)->first();
         } else {
             $user = User::query()->where('username', $request->username)->first();
         }
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        if (!$user) {
             return back()->withErrors([
                 'username' => 'Username not exits!',
+            ]);
+        }
+
+        if (!Hash::check($request->password, $user->password)) {
+            return back()->withErrors([
                 'password' => 'Password not correct!'
             ]);
         }
 
-        if (Auth::attempt($request->validated())) {
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard');
-        }
+        $request->session()->regenerate();
+        return redirect()->intended('dashboard');
     }
 
     public function logout(User $user)

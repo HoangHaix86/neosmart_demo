@@ -8,21 +8,60 @@ import {
     Text,
     useColorModeValue,
 } from '@chakra-ui/react'
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import {usePage} from "@inertiajs/inertia-react";
 import {FormProvider, useForm} from 'react-hook-form';
 import Input from '../../Components/Form/Input';
+import * as yup from "yup";
+import {yupResolver} from '@hookform/resolvers/yup';
+import {Inertia} from "@inertiajs/inertia";
 
 interface IFormValues {
     username: string;
     password: string;
 }
 
+const schema = yup.object().shape({
+    username: yup
+        .string()
+        .required('Required')
+        .max(100),
+    password: yup
+        .string()
+        .required('Required')
+        .min(8)
+        .max(100),
+})
+
 export default function Login() {
-    const {errors} = usePage().props
-    const methods = useForm<IFormValues>();
-    const onSubmit = (value: IFormValues) => {
-        console.log(value)
+    let {errors} = usePage().props
+
+    const methods = useForm<IFormValues>({
+        defaultValues: {
+            username: '',
+            password: ''
+        },
+        mode: 'onSubmit',
+        resolver: yupResolver(schema)
+    });
+
+    useEffect(() => {
+        if (errors.username) {
+            methods.setError("username", {
+                type: "manual",
+                message: errors.username,
+            })
+        }
+        if (errors.password) {
+            methods.setError("password", {
+                type: "manual",
+                message: errors.password,
+            })
+        }
+    }, [errors])
+
+    const onSubmit = async (value: any) => {
+        Inertia.post('/auth/login', value)
     }
     return (
         <Flex

@@ -1,7 +1,7 @@
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/react";
-import { Input as InputBase } from "@chakra-ui/react";
+import {Controller, useFormContext} from "react-hook-form";
+import {FormControl, FormErrorMessage, FormLabel} from "@chakra-ui/react";
+import {Input as InputBase} from "@chakra-ui/react";
 
 interface IProps {
     name: string;
@@ -9,15 +9,15 @@ interface IProps {
     type: string;
 }
 
-const Input: React.FC<IProps> = ({ name, label, type }) => {
-    const { control } = useFormContext()
+const Input: React.FC<IProps> = ({name, label, type}) => {
+    const {control} = useFormContext()
 
     return <Controller
         control={control}
         name={name}
-        render={({ field: { onChange, name, value }, fieldState: { error }, formState }) => {
+        render={({field: {onChange, name, value}, fieldState: {error}}) => {
             return (
-                <FormControl>
+                <FormControl isInvalid={!!error}>
                     <FormLabel htmlFor={name}>{label}</FormLabel>
                     <InputBase
                         name={name}
@@ -26,9 +26,9 @@ const Input: React.FC<IProps> = ({ name, label, type }) => {
                         value={value}
                     />
                     <FormErrorMessage>
-                        {/* {errors.name && errors.name.message} */}
+                        {error?.message}
                     </FormErrorMessage>
-                </FormControl >)
+                </FormControl>)
 
         }}
     />
