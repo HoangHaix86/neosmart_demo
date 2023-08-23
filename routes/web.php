@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,7 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Index');
 });
-
+Route::get('/dashboard/products', [ProductController::class, 'index']);
 //Route::group(['middleware' => 'auth:sanctum'], function () {
 //    Route::get('/dashboard', function () {
 //        return Inertia::render('Dashboard');
