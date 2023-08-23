@@ -31,9 +31,13 @@ Route::get('/auth/login', function () {
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    });
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard/Index');
 });
+
+//Route::group(['middleware' => 'auth:sanctum'], function () {
+//    Route::get('/dashboard', function () {
+//        return Inertia::render('Dashboard');
+//    });
+//});
 
