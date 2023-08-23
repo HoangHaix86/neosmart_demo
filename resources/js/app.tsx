@@ -17,7 +17,7 @@ createInertiaApp({
         const pages = import.meta.glob('./Pages/**/*.tsx', {eager: true})
         let page = pages[`./Pages/${name}.tsx`]
         // @ts-ignore
-        page.default.layout = name.startsWith('dashboard/') ? page => <Layout children={page}/> : undefined
+        page.default.layout = name.startsWith('Auth/') ? undefined : page => <Layout children={page}/>
         return page
     },
     setup({el, App, props}) {

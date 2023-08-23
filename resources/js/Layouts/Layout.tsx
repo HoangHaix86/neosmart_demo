@@ -1,15 +1,11 @@
 import React from "react";
-import Sidebar from "../Components/Sidebar";
+import {Link} from "@chakra-ui/react";
 
 const Layout = ({children}: { children: React.ReactNode }) => {
     return (
-        <>
-            <button>Click</button>
-            <Sidebar/>dd
-            <main>
-                {children}
-            </main>
-        </>
+        <main>
+            <article>{children}</article>
+        </main>
     )
 }
 
