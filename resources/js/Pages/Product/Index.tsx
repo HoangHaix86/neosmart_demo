@@ -1,3 +1,4 @@
+import React from "react";
 import Table from "@/Components/Table/Table";
 import { Flex } from "@chakra-ui/react";
 
@@ -9,7 +10,6 @@ const Index = () => {
                 captions={["Author", "Function", "Status", "Employed", ""]}
                 data={[]}
             />
-            <div>sadasd</div>
         </Flex>
     );
 };

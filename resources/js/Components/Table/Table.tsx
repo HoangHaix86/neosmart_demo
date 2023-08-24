@@ -12,7 +12,61 @@ import {
 } from "@chakra-ui/react";
 // Custom components
 import React from "react";
+import TablesTableRow from "./TablesTableRow1";
 
+const dataProduct = [
+    {
+        id: 1,
+        name: "tets",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets1",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets2",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets3",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets4",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets5",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+    {
+        id: 1,
+        name: "tets6",
+        price: "10000",
+        create_at: "2021-01-01",
+        update_at: "2021-01-01",
+    },
+];
+
+const colums = ["STT", "Tên", "Giá", "Ngày tạo", "Ngày cập nhật"];
 const Table = ({ title, captions, data }: any) => {
     console.log({ captions });
     const textColor = useColorModeValue("gray.700", "white");
@@ -24,10 +78,10 @@ const Table = ({ title, captions, data }: any) => {
                 </Text>
             </CardHeader>
             <CardBody>
-                {/* <Table variant="simple" color={textColor}>
+                <Table variant="simple" color={textColor}>
                     <Thead>
                         <Tr my=".8rem" pl="0px" color="gray.400">
-                            {captions.map((caption: any, idx: any) => {
+                            {colums.map((caption: any, idx: any) => {
                                 return (
                                     <Th color="gray.400" key={idx}>
                                         {caption}
@@ -37,7 +91,7 @@ const Table = ({ title, captions, data }: any) => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {data.map((row: any) => {
+                        {dataProduct.map((row: any) => {
                             return (
                                 <TablesTableRow
                                     key={`${row.email}-${row.name}`}
@@ -52,7 +106,7 @@ const Table = ({ title, captions, data }: any) => {
                             );
                         })}
                     </Tbody>
-                </Table> */}
+                </Table>
             </CardBody>
         </Card>
     );
