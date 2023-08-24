@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.css-spn4bz:hover, .css-spn4bz[data-hover] {
+    -webkit-text-decoration: underline;
+    text-decoration: none !important;
+}
+
+.css-1cj2fng {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0px;
+    word-wrap: break-word;
+    --card-bg: var(--chakra-colors-chakra-body-bg);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-radius);
+    color: var(--chakra-colors-chakra-body-text);
+    border-width: var(--card-border-width, 0);
+    border-color: var(--card-border-color);
+    --card-radius: var(--chakra-radii-md);
+    --card-padding: var(--chakra-space-5);
+    --card-shadow: var(--chakra-shadows-base);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    background: linear-gradient(81.62deg, #dbdeea 2.25%, #93a0e7 79.87%) !important;
+    position: relative;
+}
