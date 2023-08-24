@@ -10,7 +10,7 @@ const ChartStatistics = ({ title, amount, icon, percentage }: any) => {
     return (
         <Flex direction="column">
             <Flex alignItems="center">
-                <IconBox as="box" h={"30px"} w={"30px"} bg={iconTeal} me="6px">
+                <IconBox as="div" h={"30px"} w={"30px"} bg={iconTeal} me="6px">
                     {icon}
                 </IconBox>
                 <Text fontSize="sm" color="gray.400" fontWeight="semibold">
