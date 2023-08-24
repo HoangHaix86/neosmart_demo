@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.css-spn4bz:hover, .css-spn4bz[data-hover] {
+    -webkit-text-decoration: underline;
+    text-decoration: none !important;
+}
