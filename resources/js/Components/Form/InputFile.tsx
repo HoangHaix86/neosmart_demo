@@ -9,7 +9,7 @@ interface IProps {
     type: string;
 }
 
-const Input: React.FC<IProps> = ({name, label, type}) => {
+const InputFile: React.FC<IProps> = ({name, label, type}) => {
     const {control} = useFormContext()
 
     return <Controller
@@ -34,4 +34,4 @@ const Input: React.FC<IProps> = ({name, label, type}) => {
     />
 }
 
-export default Input;
+export default InputFile;
