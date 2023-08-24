@@ -22,7 +22,7 @@ import WorkWithTheRockets from "./WorkWithTheRockets";
 import ActiveUsers from "./ActiveUsers";
 import SalesOverview from "./SalesOverview";
 import BarChart from "@/Components/Charts/BarChart";
-import LineChart from "./../../Components/Charts/LineChart";
+import LineChart from "@/Components/Charts/LineChart";
 
 const Index: React.FC = () => {
     const iconBoxInside = useColorModeValue("white", "white");
