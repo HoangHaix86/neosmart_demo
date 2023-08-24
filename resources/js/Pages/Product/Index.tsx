@@ -9,6 +9,7 @@ const Index = () => {
                 captions={["Author", "Function", "Status", "Employed", ""]}
                 data={[]}
             />
+            <div>sadasd</div>
         </Flex>
     );
 };
