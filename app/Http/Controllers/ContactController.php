@@ -11,4 +11,9 @@ class ContactController extends Controller
     {
         return Inertia::render('Contact/Index');
     }
+
+    public function store()
+    {
+        return Inertia::render('Contact/Index');
+    }
 }

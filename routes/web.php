@@ -29,7 +29,10 @@ Route::get('/giai-phap', [HomeController::class, 'solution'])->name('client.solu
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::get('products', [ProductController::class, 'index'])->name('product');
+        Route::post('products', [ProductController::class, 'store'])->name('product.store');
+
         Route::get('news', [NewController::class, 'index'])->name('new');
         Route::get('blogs', [BlogController::class, 'index'])->name('blog');
         Route::get('contacts', [ContactController::class, 'index'])->name('contact');
