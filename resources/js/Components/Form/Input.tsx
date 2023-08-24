@@ -1,37 +1,25 @@
+import {FormControl, FormHelperText, FormLabel, Input as InputBase} from "@chakra-ui/react";
 import React from "react";
-import {Controller, useFormContext} from "react-hook-form";
-import {FormControl, FormErrorMessage, FormLabel} from "@chakra-ui/react";
-import {Input as InputBase} from "@chakra-ui/react";
 
 interface IProps {
     name: string;
     label: string;
-    type: string;
+    isError: boolean;
+    messageError?: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    value: string;
 }
 
-const Input: React.FC<IProps> = ({name, label, type}) => {
-    const {control} = useFormContext()
-
-    return <Controller
-        control={control}
-        name={name}
-        render={({field: {onChange, name, value}, fieldState: {error}}) => {
-            return (
-                <FormControl isInvalid={!!error}>
-                    <FormLabel htmlFor={name}>{label}</FormLabel>
-                    <InputBase
-                        name={name}
-                        type={type}
-                        onChange={onChange}
-                        value={value}
-                    />
-                    <FormErrorMessage>
-                        {error?.message}
-                    </FormErrorMessage>
-                </FormControl>)
-
-        }}
-    />
+const Input: React.FC<IProps> = ({name, label, isError = false, onChange, value, messageError}) => {
+    return (
+        < FormControl
+            isInvalid={isError}>
+            <FormLabel>{label}</FormLabel>
+            <InputBase type='text' id={name} value={value} onChange={onChange}/>
+            {
+                isError && <FormHelperText color='red'>{messageError}</FormHelperText>
+            }
+        </FormControl>)
 }
 
 export default Input;

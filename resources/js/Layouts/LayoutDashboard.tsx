@@ -1,5 +1,3 @@
-'use client'
-
 import {
     IconButton,
     Avatar,
@@ -20,7 +18,7 @@ import {
     MenuButton,
     MenuDivider,
     MenuItem,
-    MenuList,
+    MenuList, Button,
 } from '@chakra-ui/react'
 import {
     FiHome,
@@ -34,13 +32,13 @@ import {
 } from 'react-icons/fi'
 import {IconType} from 'react-icons'
 import React from "react";
-import {Link as ChakraLink, LinkProps} from '@chakra-ui/react'
 import {Link} from "@inertiajs/react";
-
+import {IconDashboard, IconBuildingStore, IconArticle, IconBrandBlogger, IconAddressBook} from '@tabler/icons-react';
 
 interface NavItemProps extends FlexProps {
     icon: IconType
     children: React.ReactNode
+    href: string
 }
 
 interface MobileProps extends FlexProps {
@@ -68,40 +66,30 @@ const SidebarContent = ({onClose, ...rest}: SidebarProps) => {
                 </Text>
                 <CloseButton display={{base: 'flex', md: 'none'}} onClick={onClose}/>
             </Flex>
-            <ChakraLink as={Link} href={route('dashboard')}>
-                <NavItem icon={FiHome}>
-                    Dashboard
-                </NavItem>
-            </ChakraLink>
-            <ChakraLink as={Link} href={route('product')}>
-                < NavItem icon={FiHome}>
-                    Sản phẩm
-                </NavItem>
-            </ChakraLink>
-            <ChakraLink as={Link} href={route('new')}>
-                < NavItem icon={FiHome}>
-                    Tin tức
-                </NavItem>
-            </ChakraLink>
-            <ChakraLink as={Link} href={route('blog')}>
-                < NavItem icon={FiHome}>
-                    Blog
-                </NavItem>
-            </ChakraLink>
-            <ChakraLink as={Link} href={route('contact')}>
-                < NavItem icon={FiHome}>
-                    Contact
-                </NavItem>
-            </ChakraLink>
+            <NavItem icon={IconDashboard} href={route('dashboard')}>
+                Dashboard
+            </NavItem>
+            < NavItem icon={IconBuildingStore} href={route('product')}>
+                Sản phẩm
+            </NavItem>
+            < NavItem icon={IconArticle} href={route('new')}>
+                Tin tức
+            </NavItem>
+            < NavItem icon={IconBrandBlogger} href={route('blog')}>
+                Blog
+            </NavItem>
+            < NavItem icon={IconAddressBook} href={route('contact')}>
+                Contact
+            </NavItem>
         </Box>
     )
 }
 
-const NavItem = ({icon, children, ...rest}: NavItemProps) => {
+const NavItem = ({icon, children, href}: NavItemProps) => {
     return (
         <Box
-            as="a"
-            href="#"
+            as={Link}
+            href={href}
             style={{textDecoration: 'none'}}
             _focus={{boxShadow: 'none'}}>
             <Flex
@@ -114,8 +102,7 @@ const NavItem = ({icon, children, ...rest}: NavItemProps) => {
                 _hover={{
                     bg: 'cyan.400',
                     color: 'white',
-                }}
-                {...rest}>
+                }}>
                 {icon && (
                     <Icon
                         mr="4"
@@ -194,11 +181,11 @@ const MobileNav = ({onOpen, ...rest}: MobileProps) => {
                             <MenuItem>Settings</MenuItem>
                             <MenuItem>Billing</MenuItem>
                             <MenuDivider/>
-                            <MenuItem>
-                                <ChakraLink as={Link} href={route('logout')} method="post" display='block'>
-                                    Sign out
-                                </ChakraLink>
-                            </MenuItem>
+                            {/*<MenuItem>*/}
+                            {/*    <ChakraLink as={Link} href={route('logout')} method="post" display='block'>*/}
+                            {/*        Sign out*/}
+                            {/*    </ChakraLink>*/}
+                            {/*</MenuItem>*/}
                         </MenuList>
                     </Menu>
                 </Flex>

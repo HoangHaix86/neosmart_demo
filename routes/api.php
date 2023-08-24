@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,5 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::post('upload-image', [UploadImageController::class, 'store'])->name('upload-image');
+    Route::delete('upload-image', [UploadImageController::class, 'destroy'])->name('remove-image');
+});
 
 

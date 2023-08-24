@@ -21,7 +21,8 @@ createInertiaApp({
     setup({el, App, props}) {
         const root = createRoot(el);
 
-        root.render(<ChakraProvider><App {...props} /></ChakraProvider>);
+        root.render(<ChakraProvider
+            toastOptions={{defaultOptions: {position: 'bottom-left'}}}><App {...props} /></ChakraProvider>);
     },
     progress: {
         color: '#4B5563',
