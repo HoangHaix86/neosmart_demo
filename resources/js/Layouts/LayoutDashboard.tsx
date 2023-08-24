@@ -78,6 +78,21 @@ const SidebarContent = ({onClose, ...rest}: SidebarProps) => {
                     Sản phẩm
                 </NavItem>
             </ChakraLink>
+            <ChakraLink as={Link} href={route('new')}>
+                < NavItem icon={FiHome}>
+                    Tin tức
+                </NavItem>
+            </ChakraLink>
+            <ChakraLink as={Link} href={route('blog')}>
+                < NavItem icon={FiHome}>
+                    Blog
+                </NavItem>
+            </ChakraLink>
+            <ChakraLink as={Link} href={route('contact')}>
+                < NavItem icon={FiHome}>
+                    Contact
+                </NavItem>
+            </ChakraLink>
         </Box>
     )
 }

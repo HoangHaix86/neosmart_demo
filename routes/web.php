@@ -30,6 +30,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/products', [ProductController::class, 'index'])->name('product');
+        Route::get('/news', [ProductController::class, 'index'])->name('new');
+        Route::get('/blogs', [ProductController::class, 'index'])->name('blog');
+        Route::get('/contacts', [ProductController::class, 'index'])->name('contact');
     });
 });
 
