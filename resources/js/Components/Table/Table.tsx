@@ -15,7 +15,7 @@ import React from "react";
 import TablesTableRow from "./TablesTableRow1";
 
 const Table = ({ title, captions, data }: any) => {
-    console.log({ captions });
+    console.log(captions);
     const textColor = useColorModeValue("gray.700", "white");
     return (
         <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
@@ -28,16 +28,17 @@ const Table = ({ title, captions, data }: any) => {
                 <Table variant="simple" color={textColor}>
                     <Thead>
                         <Tr my=".8rem" pl="0px" color="gray.400">
-                            {captions.map((caption: any, idx: any) => {
+                            {/* {captions.map((caption: any, idx: any) => {
                                 return (
                                     <Th color="gray.400" key={idx}>
                                         {caption}
                                     </Th>
                                 );
-                            })}
+                            })} */}
+                            {JSON.stringify(captions)}
                         </Tr>
                     </Thead>
-                    <Tbody>
+                    {/* <Tbody>
                         {data.map((row: any) => {
                             return (
                                 <TablesTableRow
@@ -52,7 +53,7 @@ const Table = ({ title, captions, data }: any) => {
                                 />
                             );
                         })}
-                    </Tbody>
+                    </Tbody> */}
                 </Table>
             </CardBody>
         </Card>

@@ -54,7 +54,7 @@ const MiniStatistics = ({ title, amount, percentage, icon }: any) => {
                             </StatHelpText>
                         </Flex>
                     </Stat>
-                    <IconBox as="box" h={"45px"} w={"45px"} bg={iconTeal}>
+                    <IconBox as="div" h={"45px"} w={"45px"} bg={iconTeal}>
                         {icon}
                     </IconBox>
                 </Flex>
